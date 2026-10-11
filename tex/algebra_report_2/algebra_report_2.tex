@@ -40,7 +40,7 @@ $\pi > 3$からどんどん強くしていく感じで計算します。お察�
 
 以上より示せた。
 \end{proof}
-まあこのぐらいはな実は学校の教科書にも載っているくらいなので、次に行きます。先は長そうです。
+まあこのぐらいは実は学校の教科書にも載っているくらいなので、次に行きます。先は長そうです。
 \subsection{正六角形→正八角形}
 頂点の数は増やせば増やすほど近似はもちろん良くなっていくので、次は計算しやすそうな正八角形で行きます。
 \begin{proof}
@@ -131,9 +131,9 @@ $\pi > 3$からどんどん強くしていく感じで計算します。お察�
 \begin{proof}
 半径$1$の円に内接する正十二角形を考え、その一辺の長さを$a_{12}$とする。
 
-半径$1$の円に内接する正六角形の一辺の長さは$1$である。正$n$角形の一辺の長さを$a_n$とすると、半角の公式より
+半径$1$の円に内接する正六角形の一辺の長さは$1$である。正$m$角形の一辺の長さを$a_m$とすると、半角の公式より
 \[
-a_{2n}=\sqrt{2-\sqrt{4-a_n^2}}
+a_{2m}=\sqrt{2-\sqrt{4-a_m^2}}
 \]
 が成り立つ。
 
@@ -326,57 +326,6 @@ n & \text{正多角形} & p_n\\ \hline
 \]
 
 この表からも、頂点の数を増やすほど近似値が$\pi$に近づいていることがわかる。
-
-では、$n$を限りなく大きくしたとき、この数列は本当に$\pi$に収束するのだろうか（もちろん直感的には明らかだが）。
-
-正$N$角形の一辺の長さは、半径1の円を考えると
-\[
-a_N=2\sin\frac{\pi}{N}
-\]
-と表せる。したがって、
-\[
-\begin{aligned}
-p_n
-&=3\cdot 2^n a_{6\cdot 2^n}\\
-&=6\cdot 2^n
-\sin\frac{\pi}{6\cdot 2^n}\\
-&=\pi\frac{
-\sin\left(\dfrac{\pi}{6\cdot 2^n}\right)
-}{
-\dfrac{\pi}{6\cdot 2^n}
-}.
-\end{aligned}
-\]
-
-ここで、$n\to\infty$とすると、
-\[ \frac{\pi}{6\cdot 2^n}\to 0 \]
-となる。また、よく知られた極限
-\[ \lim_{x\to 0}\frac{\sin x}{x}=1 \]
-を用いれば、
-\[
-\begin{aligned}
-\lim_{n\to\infty}p_n
-&=\pi\lim_{n\to\infty}
-\frac{
-\sin\left(\dfrac{\pi}{6\cdot 2^n}\right)
-}{
-\dfrac{\pi}{6\cdot 2^n}
-}\\
-&=\pi
-\end{aligned}
-\]
-が得られる。
-
-以上より、
-\[
-\boxed{
-\pi=\lim_{n\to\infty}
-3\cdot 2^n\sqrt{2-b_{n-1}}
-}
-\]
-が成り立つ。ただし、$b_0=\sqrt{3}$、
-$b_{k+1}=\sqrt{2+b_k}$である。
-
 つまり、入れ子の平方根を用いて表された数列を考えることで、円周率を下から近似し、その極限として$\pi$を表すことができた。
 
 今回の計算では、正九十六角形を用いることで$\pi>3.14$を示せた。しかし、頂点の数をさらに増やしていけば、より精度の高い近似値が得られる。最初は$\pi>3$という簡単な不等式から始まったが、正多角形の周長と半角の公式を利用することで、円周率の近似を段階的に改良できることがわかった。
@@ -389,7 +338,7 @@ $b_{k+1}=\sqrt{2+b_k}$である。
 \sqrt{
 2-\underbrace{
 \sqrt{2+\sqrt{2+\cdots+\sqrt{2+\sqrt{3}}}}
-}_{n-1\text{個の }2}
+}_{\text{「}n-1\text{個の2」と「1個の3」}}
 }
 }
 \]
@@ -398,8 +347,7 @@ $b_{k+1}=\sqrt{2+b_k}$である。
 \begin{figure}[htbp]
   \centering
   \vspace{1cm}
-  \qrcode[height=4cm]{https://github.com/CrazyAtCoder0817-tk/projects/blob/main/tex/algebra_report_1/algebra_report_1.tex}
+  \qrcode[height=4cm]{https://github.com/CrazyAtCoder0817-tk/projects/blob/main/tex/algebra_report_2/algebra_report_2.tex}
   \caption*{今回の\TeX ソースファイル（Github）}
 \end{figure}
-\end{document}
 \end{document}
