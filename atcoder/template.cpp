@@ -27,6 +27,27 @@ template <typename T, typename U> void read(pair<T,U>& p){read(p.first);read(p.s
 template <typename T> void read(vector<T>& v){for(auto& x:v) read(x);}
 template <typename... Args> void read(Args&... args){(read(args), ...);}
 
+vll dijkstra(const vector<vector<pll>>& G, int s) {
+    const ll INF=LLONG_MAX/4;
+    int n=G.size();
+    vll dist(n, INF);
+    priority_queue<pll,vector<pll>,greater<pll>> pq;
+    dist[s]=0;
+    pq.emplace(0,s);
+    while (!pq.empty()){
+        auto[d,v]=pq.top();
+        pq.pop();
+        if (d != dist[v]) continue;
+        for(auto[to,cost]:G[v]){
+            if (dist[to]>d+cost){
+                dist[to]=d+cost;
+                pq.emplace(dist[to],to);
+            }
+        }
+    }
+    return dist;
+}
+
 int main() {
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
